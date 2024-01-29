@@ -1,17 +1,32 @@
 package com.mycompany.narutojava.julie.ninja.model.clases;
 
 public class Ninja {
-    private Long NinjaID;
+    private int ninjaID;
     private String nombre;
     private String rango;
     private String aldea;
+    
+//constructor
 
-    public Long getNinjaID() {
-        return NinjaID;
+    public Ninja() {
     }
 
-    public void setNinjaID(Long NinjaID) {
-        this.NinjaID = NinjaID;
+    
+    public Ninja(int ninjaID, String nombre, String rango, String aldea) {
+        this.ninjaID = ninjaID;
+        this.nombre = nombre;
+        this.rango = rango;
+        this.aldea = aldea;
+    }
+    
+    
+    //gettera y setter
+    public int getNinjaID() {
+        return ninjaID;
+    }
+
+    public void setNinjaID(int NinjaID) {
+        this.ninjaID = NinjaID;
     }
 
     public String getNombre() {
@@ -38,6 +53,12 @@ public class Ninja {
         this.aldea = aldea;
     }
     
+    //tostring
+
+    @Override
+    public String toString() {
+        return "Ninja{" + "NinjaID=" + ninjaID + ", nombre=" + nombre + ", rango=" + rango + ", aldea=" + aldea + '}';
+    }
     
     
 }
