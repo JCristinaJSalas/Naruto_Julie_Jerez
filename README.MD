@@ -27,3 +27,12 @@ I – Principio de Segregación de Interfaces: "Los objetos no deben ser forzado
 
 D – Principio de Inversión de Dependencias: Los módulos de alto nivel no deben depender de módulos de bajo nivel. Ambos deben depender de abstracciones.
 
+
+
+### Diagrama de Clases
+
+![imagenes\DiagramaDeClaseImagen.png](imagenes\DiagramaDeClaseImagen.png)
+
+
+### Diagrama de Base de datos
+![imagenes\drawSQL-filtro-ene-29.png](imagenes\drawSQL-filtro-ene-29.png)
