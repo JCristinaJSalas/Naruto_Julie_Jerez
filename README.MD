@@ -31,8 +31,8 @@ D – Principio de Inversión de Dependencias: Los módulos de alto nivel no deb
 
 ### Diagrama de Clases
 
-![imagenes\DiagramaDeClaseImagen.png](imagenes\DiagramaDeClaseImagen.png)
+![](imagenes\DiagramaDeClaseImagen.png)
 
 
 ### Diagrama de Base de datos
-![imagenes\drawSQL-filtro-ene-29.png](imagenes\drawSQL-filtro-ene-29.png)
+![](imagenes\drawSQL-filtro-ene-29.png)
