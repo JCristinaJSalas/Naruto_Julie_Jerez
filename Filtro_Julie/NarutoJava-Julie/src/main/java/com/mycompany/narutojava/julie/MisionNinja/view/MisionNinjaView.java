@@ -20,7 +20,7 @@ import java.util.Scanner;
  *
  * @author user
  */
-public class MisionNinjaView implements Runnable {
+public class MisionNinjaView {
 
     public static void initApp() {
         Scanner scanner = new Scanner(System.in);
@@ -64,15 +64,23 @@ public class MisionNinjaView implements Runnable {
                     System.out.println("tiempo de mision: " + tiempo);
                     
                     
-                    MisionNinja misionNinja = new MisionNinja(idNinja,idMision,LocalDate.parse(fechaInicio), null);
+                    MisionNinja misionNinja = new MisionNinja(idMision, idNinja,LocalDate.parse(fechaInicio), null);
                     misionNinjaController.insertMisionNinja(misionNinja);
                     System.out.println("Mision Creada.");
+                    
                     Thread thread = new Thread(() -> {
                          System.out.println("Mision en ejecucion");
                         try {
-                            Thread.sleep(tiempo * 1000);
+                            Thread.sleep(tiempo * 10000);
                             
-                            System.out.println("Mision Terminada");
+                            List<MisionNinja> listMisionNinja = misionNinjaController.getAllMisionNinja().stream().filter(mision -> mision.getMisionID() == idMision).toList();
+                            listMisionNinja.forEach(mision -> {
+                                mision.setFechaFin(LocalDate.now());
+                                misionNinjaController.updateMV(mision);
+                            });
+                            
+                                                System.out.println("Mision Terminada.");
+
                             
                                 
                         } catch (InterruptedException e) {
@@ -89,10 +97,5 @@ public class MisionNinjaView implements Runnable {
                 System.out.println(e.getMessage());
             }
         }
-    }
-
-    @Override
-    public void run() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
