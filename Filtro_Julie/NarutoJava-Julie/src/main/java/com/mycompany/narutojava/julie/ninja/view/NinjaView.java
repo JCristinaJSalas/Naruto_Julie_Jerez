@@ -32,7 +32,7 @@ public class NinjaView {
                         1. Agrega Ninja
                         2. Elimina Ninja
                         3. Muestra Ninjas
-                        4. Ninjas y habilidades
+                        4. Muestra Ninja
                         0. << Volver
                         """);
                 System.out.print("Opcion: ");
@@ -69,8 +69,10 @@ public class NinjaView {
 
                     }
                 } else if (opcion == 4) {
-                    System.out.println("Ninjas y Habilidades ");
-                    
+                    System.out.println("Ninja ");
+                    int idNinja = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println(ninjaController.getByIdNinjas(idNinja)); 
                     
                 } else {
                     throw new Exception("\nError: La opcion ingresada no es valida.");
@@ -81,6 +83,6 @@ public class NinjaView {
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-        }
+        }scanner.close();
     }
 }

@@ -13,18 +13,22 @@ public class Mision {
     private String descripcion;
     private String rango;
     private String recompensa;
+    private int tiempo;
 
     
     //constructer
     public Mision() {
     }
 
-    public Mision( String descripcion, String rango, String recompensa) {
+    public Mision(String descripcion, String rango, String recompensa, int tiempo) {
         
         this.descripcion = descripcion;
         this.rango = rango;
         this.recompensa = recompensa;
+        this.tiempo = tiempo;
     }
+
+   
     
     
     //getter and setters
@@ -60,13 +64,25 @@ public class Mision {
     public void setRecompensa(String recompensa) {
         this.recompensa = recompensa;
     }
+
+    public int getTiempo() {
+        return tiempo;
+    }
+
+    public void setTiempo(int tiempo) {
+        this.tiempo = tiempo;
+    }
+    
+    
     
     //toStirng
 
     @Override
     public String toString() {
-        return "Mision{" + "misionId=" + misionId + ", descripcion=" + descripcion + ", rango=" + rango + ", recompensa=" + recompensa + '}';
+        return "Mision{" + "misionId=" + misionId + ", descripcion=" + descripcion + ", rango=" + rango + ", recompensa=" + recompensa + ", tiempo=" + tiempo + '}';
     }
+
+ 
     
     
 }

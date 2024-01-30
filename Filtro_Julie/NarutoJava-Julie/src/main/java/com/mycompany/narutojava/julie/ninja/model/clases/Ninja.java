@@ -57,7 +57,7 @@ public class Ninja {
 
     @Override
     public String toString() {
-        return "Ninja{" + "NinjaID=" + ninjaID + ", nombre=" + nombre + ", rango=" + rango + ", aldea=" + aldea + '}';
+        return "Ninja: "+ninjaID + ": " + nombre + ", R=" + rango + ", aldea=" + aldea ;
     }
     
     

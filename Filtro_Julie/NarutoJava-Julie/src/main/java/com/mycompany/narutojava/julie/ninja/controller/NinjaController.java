@@ -25,5 +25,7 @@ public class NinjaController {
     public List<Ninja> getAllNinjas(){
         return ninjaDAO.getAll();
     }
-  
+      public Ninja getByIdNinjas(int ninjaId){
+        return ninjaDAO.getById(ninjaId);
+    }
 }

@@ -12,13 +12,15 @@ CREATE TABLE Mision (
     MisionID INT PRIMARY KEY AUTO_INCREMENT,
     Descripcion VARCHAR(100),
     Rango VARCHAR(100),
-    Recompensa VARCHAR(50)
+    Recompensa VARCHAR(50),
+    Tiempo INT
 );
 CREATE TABLE MisionNinja (
     NinjaID INT not NULL,
     MisionID INT not null,
     FechaInicio DATE,
     FechaFin DATE,
+    PRIMARY KEY (NinjaID, MisionID),
     FOREIGN KEY (NinjaID) REFERENCES Ninja(NinjaID),
     Foreign Key (MisionID) REFERENCES Mision(MisionID)
 );
@@ -37,10 +39,10 @@ INSERT INTO Ninja (NinjaID, Nombre, Rango, Aldea) VALUES (3, 'Cristina', 'SASAU'
 INSERT INTO Ninja (NinjaID, Nombre, Rango, Aldea) VALUES (4, 'Naruto', 'JOUNIN', 'Aldea Fuego');
 INSERT INTO Ninja (NinjaID, Nombre, Rango, Aldea) VALUES (5, 'Killua', 'GENNIN', 'Aldea Tierra');
 
-INSERT INTO Mision (MisionID, Descripcion, Rango, Recompensa) VALUES (1, 'Transportar Empresario', 'Rango C', 'Y - 45.000');
-INSERT INTO Mision (MisionID, Descripcion, Rango, Recompensa) VALUES (2, 'Transportar Ninos', 'Rango D', 'Y - 5.000');
-INSERT INTO Mision (MisionID, Descripcion, Rango, Recompensa) VALUES (3, 'Escoltar Persona', 'Rango B', 'Y - 405.000');
-INSERT INTO Mision (MisionID, Descripcion, Rango, Recompensa) VALUES (4, 'Cortar Cesped', 'Rango D', 'Y - 1.000');
+INSERT INTO Mision (MisionID, Descripcion, Rango, Recompensa,Tiempo) VALUES (1, 'Transportar Empresario', 'Rango C', 'Y - 45.000',1);
+INSERT INTO Mision (MisionID, Descripcion, Rango, Recompensa,Tiempo) VALUES (2, 'Transportar Ninos', 'Rango D', 'Y - 5.000',2);
+INSERT INTO Mision (MisionID, Descripcion, Rango, Recompensa,Tiempo) VALUES (3, 'Escoltar Persona', 'Rango B', 'Y - 405.000',5);
+INSERT INTO Mision (MisionID, Descripcion, Rango, Recompensa,Tiempo) VALUES (4, 'Cortar Cesped', 'Rango D', 'Y - 1.000',4);
 
 INSERT INTO Habilidad (HabilidadID, NinjaID, Nombre, Descripcion) VALUES (1,2, 'Control Arena', 'Compacta arena');
 INSERT INTO Habilidad (HabilidadID, NinjaID, Nombre, Descripcion) VALUES (2,1, 'Volar', 'Vuela por 30 min');
@@ -67,7 +69,7 @@ INSERT INTO MisionNinja (NinjaID, MisionID, FechaInicio, FechaFin) VALUES (5,4,"
 
 
 --NINJAS CON SUS HABILIDADDES
-Select n.*, h.Nombre as Habilidad from Ninja n
+Select n.*, h.Nombre as Habilidad from Ninja n 
 Inner join Habilidad h on n.NinjaID = h.NinjaID;
 
 

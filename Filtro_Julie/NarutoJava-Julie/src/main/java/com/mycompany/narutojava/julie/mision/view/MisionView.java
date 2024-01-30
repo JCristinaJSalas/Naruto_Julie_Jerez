@@ -4,9 +4,11 @@
  */
 package com.mycompany.narutojava.julie.mision.view;
 
+import com.mycompany.narutojava.julie.MisionNinja.view.MisionNinjaView;
 import com.mycompany.narutojava.julie.mision.controller.MisionController;
 import com.mycompany.narutojava.julie.mision.model.classes.Mision;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -26,6 +28,8 @@ public class MisionView {
                                                 
                         1. Agrega Mision
                         2. Elimina mision
+                        3. Ver todas las misiones
+                        4. Gestionar mision
                         0. << Volver
                         """);
                 System.out.print("Opcion: ");
@@ -44,8 +48,11 @@ public class MisionView {
                     System.out.println("Recompensa ");
                     String recompensa = scanner.next();
                     scanner.nextLine();
+                    System.out.println("Tiempo de ejecucion ");
+                    int tiempo = scanner.nextInt();
+                    scanner.nextLine();
                     
-                    Mision mision = new Mision(descripcion, descripcion,recompensa);
+                    Mision mision = new Mision(descripcion, rango,recompensa,tiempo);
                     misionController.insertMision(mision);
                     scanner.nextLine();
 
@@ -54,7 +61,19 @@ public class MisionView {
                     int idmision = scanner.nextInt();
                     scanner.nextLine();
                     misionController.deleteMision(idmision);
-                }else {
+                }else if (opcion == 3) {
+                    System.out.println("Misiones: ");
+                    List<Mision> listMision = misionController.getAllMision();
+                    for (Mision m : listMision) {
+                        System.out.println(m);
+                    }
+                    
+                }else if (opcion == 4) {
+                    System.out.println("Gestionar Misiones: ");
+                    MisionNinjaView.initApp();
+                    
+                }
+                else {
                     throw new Exception("\nError: La opcion ingresada no es valida.");
                 }
             } catch (InputMismatchException e) {
